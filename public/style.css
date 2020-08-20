@@ -1,12 +1,8 @@
-line-1{
-    position: relative;
-    top: 50%;  
-    width: 24em;
-    margin: 0 auto;
-    border-right: 2px solid rgba(255,255,255,.75);
-    font-size: 180%;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    transform: translateY(-50%);    
+@font-face {
+	font-family: 'MyFont';
+	src: url(https://cdn.glitch.com/15668715-4562-4e4a-9cee-0093e2bd6f19%2F03SmartFont-P.ttf?v=1592042648044);
+}
+
+body {
+	font-family: MyFont;
 }
