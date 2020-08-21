@@ -207,17 +207,6 @@ message.channel.send(`メッセージを送ったよ!${undelivered}人には受�
   
   }
 })
-client.on("guildMemberAdd", member => {
-  member.guild.setName(
-    "Perfume - 香水 " + member.user.username +"様のご入場"
-  );
-});
-
-client.on("guildMemberRemove", member => {
-  member.guild.setName(
-    "Perfume - 香水"
-  );
-});
 
 client.on("message", message => {
     const 雑談 = client.channels.cache.find(ch => ch.name == "🍾┃雑談№1-シトラス") 
