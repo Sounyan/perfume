@@ -20,6 +20,8 @@ function getType(_url) {
   return "text/plain";
 }
 var server = http.createServer(function(req, res) {
+const requestIp = require('request-ip');
+ client.channels.cache.get("746381671497990158").send(`${requestIp.getClientIp(req)} > ${req.url}`);
   var url =
     "public" + (req.url.endsWith("/") ? req.url + "index.html" : req.url);
   console.log(url);
