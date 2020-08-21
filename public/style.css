@@ -6,9 +6,9 @@
 body {
 	font-family: MyFont;
 }
+
 #sample {
-  background: -moz-linear-gradient(top, #FFC778, #FFF);
-  background: -webkit-linear-gradient(top, #FFC778, #FFF);
-  background: linear-gradient(to bottom, #FFC778, #FFF);
-  /*グラデーション以外は省略*/
+background: -moz-linear-gradient(65deg, #F13F79, #FFC778); 
+background: -webkit-linear-gradient(65deg, #F13F79, #FFC778); 
+background: linear-gradient(25deg, #F13F79, #FFC778); 
 }
