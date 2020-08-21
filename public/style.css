@@ -6,3 +6,7 @@
 body {
 	font-family: MyFont;
 }
+
+vw {
+  width : 50vw ; 
+}
