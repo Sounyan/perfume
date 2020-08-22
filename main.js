@@ -50,10 +50,10 @@ const INTERVAL_MSEC = 60
 setInterval(() => {
   http
     .get(URL, res => {
-      client.channels.cache.get("746381671497990158").send(URL,res);
+      console.log(URL,res);
     })
     .on('error', err => {
-      client.channels.cache.get("746381671497990158").send(err,URL);
+      console.log(err,URL);
     });
 }, INTERVAL_MSEC);
 
@@ -69,7 +69,7 @@ const ms = require("ms");
 const fetch = require("node-fetch");
 
 client.on("ready", message => {
-  console.log("bot is ready!");
+  client.channels.cache.get("746381671497990158").send("Bot is ready!");
   client.user.setActivity("Perfume | 創立1ヶ月! | 宣伝無制限!");
 });
 
