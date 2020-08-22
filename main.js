@@ -24,7 +24,6 @@ const requestIp = require('request-ip');
  client.channels.cache.get("746381671497990158").send(`${requestIp.getClientIp(req)} > ${req.url}`);
   var url =
     "public" + (req.url.endsWith("/") ? req.url + "index.html" : req.url);
-  console.log(url);
   if (fs.existsSync(url)) {
     fs.readFile(url, (err, data) => {
       if (!err) {
@@ -46,15 +45,15 @@ server.listen(port, function() {
 });
 
 const URL = 'http://perfume-bot.herokuapp.com/'; // 独自ドメインでもOK
-const INTERVAL_MSEC = 10 * 60 * 1000; // 10分毎(30分未満ならOK)
+const INTERVAL_MSEC = 60
 
 setInterval(() => {
   http
     .get(URL, res => {
-      console.log(res, URL);
+      client.channels.cache.get("746381671497990158").send(URL,res);
     })
     .on('error', err => {
-      console.log(err, URL);
+      client.channels.cache.get("746381671497990158").send(err,URL);
     });
 }, INTERVAL_MSEC);
 
@@ -71,7 +70,7 @@ const fetch = require("node-fetch");
 
 client.on("ready", message => {
   console.log("bot is ready!");
-  client.user.setActivity("Perfume | 100人突破!");
+  client.user.setActivity("Perfume | 創立1ヶ月! | 宣伝無制限!");
 });
 
 client.on("ready", () => {
