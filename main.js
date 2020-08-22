@@ -45,7 +45,7 @@ server.listen(port, function() {
   console.log("ok");
 });
 
-const URL = 'https://perfume-bot.herokuapp.com/'; // 独自ドメインでもOK
+const URL = 'http://perfume-bot.herokuapp.com/'; // 独自ドメインでもOK
 const INTERVAL_MSEC = 10 * 60 * 1000; // 10分毎(30分未満ならOK)
 
 setInterval(() => {
