@@ -47,8 +47,8 @@ background: linear-gradient(25deg, #F13F79, #FFC778);
 }
 
 .buruburu {
-    -webkit-animation:buruburu 0.1s infinite linear alternate;
-    animation:buruburu 0.1s infinite linear alternate;
+    -webkit-animation:buruburu 0.3s infinite linear alternate;
+    animation:buruburu 0.3s infinite linear alternate;
 }
 
 @-webkit-keyframes buruburu {
