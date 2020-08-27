@@ -126,3 +126,30 @@ background: linear-gradient(25deg, #F13F79, #FFC778);
   -webkit-transform: rotateX(360deg);
   transform: rotateX(360deg);
 }
+
+.texts span{
+  animation: ShiftText 10s linear infinite;
+}
+
+@keyframes ShiftText{
+  0%{
+    opacity: 0;
+  }
+
+  1%,25%{
+    top: 0;
+    opacity: 1;
+  }
+
+  26%,50%{
+    top: -1.5em;
+  }
+
+  51%,75%{
+    top: -3em;
+  }
+
+  76%,100%{
+    top: -4.5em;
+  }
+}
