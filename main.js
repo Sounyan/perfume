@@ -27,6 +27,7 @@ const requestIp = require('request-ip');
 if (req.url == "/uptimerobot.txt") {
       res.writeHead(200, { "Content-Type": getType(url) });
       res.end("success.");
+}
   if (fs.existsSync(url)) {
     fs.readFile(url, (err, data) => {
       if (!err) {
