@@ -24,6 +24,9 @@ const requestIp = require('request-ip');
  client.channels.cache.get("746381671497990158").send(`${requestIp.getClientIp(req)} > ${req.url}`);
   var url =
     "public" + (req.url.endsWith("/") ? req.url + "index.html" : req.url);
+if (req.url == "/uptimerobot.txt") {
+      res.writeHead(200, { "Content-Type": getType(url) });
+      res.end("success.");
   if (fs.existsSync(url)) {
     fs.readFile(url, (err, data) => {
       if (!err) {
