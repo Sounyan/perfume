@@ -530,38 +530,8 @@ const args = message.content.slice(prefix.length).trim().split(/ +/g);
     if ([`3d`, `bassboost`, `echo`, `karaoke`, `nightcore`, `vaporwave`].includes(command)) {
         let filter = distube.setFilter(message, command);
         message.channel.send("キューのフィルター: " + (filter || "Off"));
-    }
-});
-
-// Queue status template
-const status = (queue) => `音量: \`${queue.volume}%\` | フィルター: \`${queue.filter || "Off"}\` | ループ: \`${queue.repeatMode ? queue.repeatMode == 2 ? "全てのキュー" : "This Song" : "Off"}\` | 自動再生: \`${queue.autoplay ? "On" : "Off"}\` `;
-
-// DisTube event listeners, more in the documentation page
-distube
-    .on("playSong", (message, queue, song) => message.channel.send(
-        `\`${song.name}\`を再生中 - \`${song.formattedDuration}\` `
-    ))
-    .on("addSong", (message, queue, song) => message.channel.send(
-        `${song.name}を追加しました。 - \`${song.formattedDuration}\` `
-    ))
-    .on("playList", (message, queue, playlist, song) => message.channel.send(
-        `再生 \`${playlist.title}\` 再生リスト (${playlist.total_items} songs).\n\`${song.name}\` を再生中 - \`${song.formattedDuration}\`\n${status(queue)}`
-    ))
-    .on("addList", (message, queue, playlist) => message.channel.send(
-        `\`${playlist.title}\` がプレイリストに追加されました。 プレイリスト (${playlist.total_items} 曲) がキューにあります。`
-    ))
-    // DisTubeOptions.searchSongs = true
-    .on("searchResult", (message, result) => {
-        let i = 0;
-        message.channel.send(`**こちらの中から数字で曲を選んでください。**\n${result.map(song => `**${++i}**. ${song.name} - \`${song.formattedDuration}\``).join("\n")}\n*60秒後にキャンセルされます。*`);
-    })
-    // DisTubeOptions.searchSongs = true
-    .on("searchCancel", (message) => message.channel.send(`検索がキャンセルされました。`))
-    .on("error", (message, err) => message.channel.send(
-        "エラーが発生しました。: " + err
-    ));
-
-  if (command === 'eval') {
+    }　
+if (command === 'eval') {
 
     // Put your userID here
 
@@ -592,6 +562,34 @@ distube
   }
 
 });
+
+// Queue status template
+const status = (queue) => `音量: \`${queue.volume}%\` | フィルター: \`${queue.filter || "Off"}\` | ループ: \`${queue.repeatMode ? queue.repeatMode == 2 ? "全てのキュー" : "This Song" : "Off"}\` | 自動再生: \`${queue.autoplay ? "On" : "Off"}\` `;
+
+// DisTube event listeners, more in the documentation page
+distube
+    .on("playSong", (message, queue, song) => message.channel.send(
+        `\`${song.name}\`を再生中 - \`${song.formattedDuration}\` `
+    ))
+    .on("addSong", (message, queue, song) => message.channel.send(
+        `${song.name}を追加しました。 - \`${song.formattedDuration}\` `
+    ))
+    .on("playList", (message, queue, playlist, song) => message.channel.send(
+        `再生 \`${playlist.title}\` 再生リスト (${playlist.total_items} songs).\n\`${song.name}\` を再生中 - \`${song.formattedDuration}\`\n${status(queue)}`
+    ))
+    .on("addList", (message, queue, playlist) => message.channel.send(
+        `\`${playlist.title}\` がプレイリストに追加されました。 プレイリスト (${playlist.total_items} 曲) がキューにあります。`
+    ))
+    // DisTubeOptions.searchSongs = true
+    .on("searchResult", (message, result) => {
+        let i = 0;
+        message.channel.send(`**こちらの中から数字で曲を選んでください。**\n${result.map(song => `**${++i}**. ${song.name} - \`${song.formattedDuration}\``).join("\n")}\n*60秒後にキャンセルされます。*`);
+    })
+    // DisTubeOptions.searchSongs = true
+    .on("searchCancel", (message) => message.channel.send(`検索がキャンセルされました。`))
+    .on("error", (message, err) => message.channel.send(
+        "エラーが発生しました。: " + err
+    ));
 
 
 client.login("NzM0MzE1NzAzOTg0NzE3ODg0.XxP6yg.EsDv_9-oKacC-AOLHDV_YcCaRD8");
