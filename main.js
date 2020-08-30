@@ -73,6 +73,7 @@ const ms = require("ms");
 const fetch = require("node-fetch");
 const DisTube = require('distube');
 const distube = new DisTube(client, { searchSongs: true });
+const ffmpeg = require('ffmpeg')
 
 client.on("ready", message => {
   client.channels.cache.get("746381671497990158").send("Bot is ready!");
