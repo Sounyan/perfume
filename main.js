@@ -499,7 +499,7 @@ const args = message.content.slice(prefix.length).trim().split(/ +/g);
     if (command == "repeat") {
         let mode = distube.setRepeatMode(message, parseInt(args[0]));
         mode = mode ? mode == 2 ? "Repeat queue" : "Repeat song" : "Off";
-        message.channel.send("Set repeat mode to `" + mode + "`");
+        message.channel.send("`" + mode + "`というリピート設定にしました。");
     }
 
     if (command == "volume")
