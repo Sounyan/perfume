@@ -496,20 +496,24 @@ const args = message.content.slice(prefix.length).trim().split(/ +/g);
     if (command == "play")
         distube.play(message, args.join(" "));
 
+
     if (command == "repeat") {
         let mode = distube.setRepeatMode(message, parseInt(args[0]));
         mode = mode ? mode == 2 ? "Repeat queue" : "Repeat song" : "Off";
         message.channel.send("`" + mode + "`というリピート設定にしました。");
     }
 
-    if (command == "volume")
+    if (command == "volume") {
         distube.setVolume(message, args[0]);
 
-    if (command == "skip")
-        distube.skip(message);
+    }
+    if (command == "skip") {
+        distube.skip(message)
+    }
 
-    if (["repeat", "loop"].includes(command))
-        distube.setRepeatMode(message, parseInt(args[0]));
+    if (["repeat", "loop"].includes(command)) {
+        distube.setRepeatMode(message, parseInt(args[0]))
+    }
 
     if (command == "disconnect") {
         distube.stop(message);
@@ -519,7 +523,7 @@ const args = message.content.slice(prefix.length).trim().split(/ +/g);
     if (command == "queue") {
         let queue = distube.getQueue(message);
         message.channel.send('これがあなたのキューです。:\n' + queue.songs.map((song, id) =>
-            `**${id + 1}**. ${song.name} - \`${song.formattedDuration}\``
+            `**${id + 1}**. ${song.name} - \`${song.formattedDuration}\` `
         ).join("\n"));
     }
 
@@ -530,7 +534,7 @@ const args = message.content.slice(prefix.length).trim().split(/ +/g);
 });
 
 // Queue status template
-const status = (queue) => `音量: \`${queue.volume}%\` | フィルター: \`${queue.filter || "Off"}\` | ループ: \`${queue.repeatMode ? queue.repeatMode == 2 ? "全てのキュー" : "This Song" : "Off"}\` | 自動再生: \`${queue.autoplay ? "On" : "Off"}\``;
+const status = (queue) => `音量: \`${queue.volume}%\` | フィルター: \`${queue.filter || "Off"}\` | ループ: \`${queue.repeatMode ? queue.repeatMode == 2 ? "全てのキュー" : "This Song" : "Off"}\` | 自動再生: \`${queue.autoplay ? "On" : "Off"}\` `;
 
 // DisTube event listeners, more in the documentation page
 distube
