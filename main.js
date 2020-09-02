@@ -48,7 +48,7 @@ server.listen(port, function() {
   console.log("ok");
 });
 
-const URL = 'http://perfume-bot.herokuapp.com/'; // 独自ドメインでもOK
+const URL = 'http://discord-perfume.herokuapp.com/'; // 独自ドメインでもOK
 const INTERVAL_MSEC = 60
 
 setInterval(() => {
