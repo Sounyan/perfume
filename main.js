@@ -52,7 +52,7 @@ server.listen(port, function() {
 const discord = require("discord.js");
 const client = new discord.Client();
 const Canvas = require("canvas");
-const prefix = "Pe!";
+const prefix = ["Pe!"];
 const fs = require("fs");
 const cron = require("node-cron");
 const { inspect } = require("util");
