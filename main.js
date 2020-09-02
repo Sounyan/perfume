@@ -48,19 +48,6 @@ server.listen(port, function() {
   console.log("ok");
 });
 
-const URL = 'http://discord-perfume.herokuapp.com/'; // 独自ドメインでもOK
-const INTERVAL_MSEC = 60
-
-setInterval(() => {
-  http
-    .get(URL, res => {
-      console.log(URL,res);
-    })
-    .on('error', err => {
-      console.log(err,URL);
-    });
-}, INTERVAL_MSEC);
-
 // Discord bot implements
 const discord = require("discord.js");
 const client = new discord.Client();
