@@ -62,6 +62,21 @@ const DisTube = require('distube');
 const distube = new DisTube(client, { searchSongs: true });
 const ffmpeg = require('ffmpeg')
 
+client.on('message', async (message) => {
+  if (message.channel.type === 'news') {
+        message.react("✅")
+    await fetch (
+      `https://discord.com/api/v6/channels/${message.channel.id}/messages/${message.id}/crosspost`,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bot ${client.token}`,
+        },
+      }
+    )
+  }
+});
+
 client.on("ready", message => {
   client.channels.cache.get("746381671497990158").send("Bot is ready!");
   client.user.setActivity("Perfume | 創立1ヶ月! | 宣伝無制限!");
