@@ -130,6 +130,16 @@ description: "Bumpをよろしくお願いします。\nぜひよければレビ
 }});
         }, 7200000);
     }
+if (
+        message.embeds.length &&
+        message.author.username == 'DISBOARD' &&
+        message.embeds[ 0 ].description.indexOf("このサーバーを上げられるようになるまで") > -1
+    ) {
+message.channel.send({embed: {
+title: "Bumpはまだみたいですよ?",
+description: "気長に待ってみて下さい。"
+}})
+}
 });
 
 
