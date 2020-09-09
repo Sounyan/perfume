@@ -113,6 +113,26 @@ client.on("ready", () => {
   });
 });
 
+client.on('message', async message => {
+    if (
+        message.embeds.length &&
+        message.author.username == 'DISBOARD' &&
+        message.embeds[ 0 ].description.indexOf("表示順をアップしたよ") > -1
+    ) {
+message.channel.send({embed: {
+title: "Bumpありがとうございます!",
+description: "ぜひよければレビューもよろしくお願いします。\nhttps://disboard.org/ja/server/733918405106860126\nこのタイマーは時々、不安定になる事があります。ご了承下さい。"
+}})
+        setTimeout(() => {
+            message.channel.send({embed: {
+title: "Bumpをして2時間経ちました。",
+description: "Bumpをよろしくお願いします。\nぜひよければレビューもよろしくお願いします。\nhttps://disboard.org/ja/server/733918405106860126"
+}});
+        }, 7200000);
+    }
+});
+
+
 client.on("message", async message => {
 if (message.content.startsWith('-auth')) {
  
