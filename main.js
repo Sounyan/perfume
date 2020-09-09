@@ -124,7 +124,7 @@ title: "Bumpありがとうございます!",
 description: "ぜひよければレビューもよろしくお願いします。\nhttps://disboard.org/ja/server/733918405106860126\nこのタイマーは時々、不安定になる事があります。ご了承下さい。"
 }})
         setTimeout(() => {
-            message.channel.send({embed: {
+            message.channel.send("<@&734279511679434752>",{embed: {
 title: "Bumpをして2時間経ちました。",
 description: "Bumpをよろしくお願いします。\nぜひよければレビューもよろしくお願いします。\nhttps://disboard.org/ja/server/733918405106860126"
 }});
