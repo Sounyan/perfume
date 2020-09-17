@@ -82,36 +82,6 @@ client.on("ready", message => {
   client.user.setActivity("Perfume | 創立1ヶ月! | 宣伝無制限!");
 });
 
-client.on("ready", () => {
-  cron.schedule("0 * * * *", () => {
-    const jphours = new Date(
-      Date.now() + (new Date().getTimezoneOffset() + 9 * 60) * 60 * 1000
-    ).getHours();
-    const comment = [
-      "シトラー団、集まれ!",
-      "みんなぁ〜元気か〜?",
-      "忙しい人〜頑張れよ〜!",
-      "人を沢山誘って〜お願いだ〜",
-      "良ければこのサーバーのレビューをよろしくお願いします!\n[レビュー](https://disboard.org/ja/review/create/733918405106860126)"
-      
-    ];
-    const random = Math.floor(Math.random() * comment.length);
-    const channel = client.channels.cache.find(ch => ch.name == "🍾┃雑談№1-シトラス")
-    channel.send({
-      embed: {
-        color: "RANDOM",
-        title: "時報です。",
-        description:
-          "**" + jphours + "時になりました。**\n> " + comment[random],
-        thumbnail: {
-          url:
-            "https://cdn.glitch.com/54a9aaa2-c952-46a9-8b02-fb5d02b4f5a0%2F3f8240fa1d16d0de6d4e7510b43b37ba.gif?v=1590394933876"
-        }
-      }
-    });
-    
-  });
-});
 
 client.on('message', async message => {
     if (
