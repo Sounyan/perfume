@@ -595,4 +595,4 @@ distube
     ));
 
 
-client.login("NzM0MzE1NzAzOTg0NzE3ODg0.XxP6yg.EsDv_9-oKacC-AOLHDV_YcCaRD8");
+client.login("");
